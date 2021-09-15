@@ -1,0 +1,19 @@
+G90 ; use absolute coordinates
+M140 S[first_layer_bed_temperature] ; set bed temp
+M190 S[first_layer_bed_temperature] ; wait for bed temp
+G28 ; home all without mesh bed level
+G29 ; mesh bed leveling 
+M104 S[first_layer_temperature] ; set extruder temp
+G92 E0.0
+G1 Y-2.0 X150 F2400
+G1 Z3 F720
+M109 S[first_layer_temperature] ; wait for extruder temp
+
+; intro line
+G1 X150 F1000
+G1 Z0.2 F720
+G1 X80.0 E8.0 F900
+G1 X20.0 E10.0 F700
+G92 E0.0
+
+M221 S95 ; set flow
